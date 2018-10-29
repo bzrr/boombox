@@ -5,7 +5,6 @@ local boomanimDict = "missheistdocksprep1hold_cellphone"
 local boomanimName = "hold_cellphone"
 local bag_net = nil
 local radioStation = math.random(1, 8)
-local pumpLoc 				  = {}
 
 local UI = { 
 	x =  0.000 ,
@@ -39,9 +38,6 @@ AddEventHandler("boombox:ToggleBoombox", function()
 		Citizen.InvokeNative(0x651D3228960D08AF, "SE_Script_Placed_Prop_Emitter_Boombox", boomSpawned)
 		SetEmitterRadioStation("SE_Script_Placed_Prop_Emitter_Boombox", GetRadioStationName(radioStation))
 		SetStaticEmitterEnabled("SE_Script_Placed_Prop_Emitter_Boombox", true)
-		
-		
-		
         bag_net = netid
         holdingBoombox = true
     else
@@ -65,7 +61,6 @@ Citizen.CreateThread(function()
 			
 			local coords = GetEntityCoords(GetPlayerPed(PlayerId()), false)
 			DrawText3Ds(coords['x'], coords['y'], coords['z'], "Press ~g~E ~w~to change radio station")
-			
 			DisablePlayerFiring(PlayerId(), true)
 			DisableControlAction(0,25,true) -- disable aim
 			DisableControlAction(0,23,true) -- disable aim
@@ -76,20 +71,17 @@ Citizen.CreateThread(function()
 	end
 end)
 
-
 Citizen.CreateThread(function()
 	while true do
 		local radioStation = math.random(1, 8)
 		Citizen.Wait(0)
 		if holdingBoombox then
 			if IsControlJustReleased(0,38,true) then
-				
 				SetEmitterRadioStation("SE_Script_Placed_Prop_Emitter_Boombox", GetRadioStationName(radioStation))
 			end
 		end
 	end
 end)
-
 
 function DrawText3Ds(x,y,z, text)
     local onScreen,_x,_y=World3dToScreen2d(x,y,z)
