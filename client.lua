@@ -11,6 +11,10 @@ local UI = {
 	y = -0.001 ,
 }
 
+RegisterCommand("bbox", function()
+    TriggerEvent("boombox:ToggleBoombox")
+end, false)
+
 RegisterNetEvent("boombox:ToggleBoombox")
 AddEventHandler("boombox:ToggleBoombox", function()
     if not holdingBoombox then
