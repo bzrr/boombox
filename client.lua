@@ -35,9 +35,9 @@ AddEventHandler("boombox:ToggleBoombox", function()
         TaskPlayAnim(GetPlayerPed(PlayerId()), 1.0, -1, -1, 50, 0, 0, 0, 0) -- 50 = 32 + 16 + 2
         TaskPlayAnim(GetPlayerPed(PlayerId()), boomanimDict, boomanimName, 1.0, -1, -1, 50, 0, 0, 0, 0)
 		
-		Citizen.InvokeNative(0x651D3228960D08AF, "SE_Script_Placed_Prop_Emitter_Boombox", boomSpawned)
-		SetEmitterRadioStation("SE_Script_Placed_Prop_Emitter_Boombox", GetRadioStationName(radioStation))
-		SetStaticEmitterEnabled("SE_Script_Placed_Prop_Emitter_Boombox", true)
+        Citizen.InvokeNative(0x651D3228960D08AF, "SE_Script_Placed_Prop_Emitter_Boombox", boomSpawned)
+        SetEmitterRadioStation("SE_Script_Placed_Prop_Emitter_Boombox", GetRadioStationName(radioStation))
+        SetStaticEmitterEnabled("SE_Script_Placed_Prop_Emitter_Boombox", true)
         bag_net = netid
         holdingBoombox = true
     else
