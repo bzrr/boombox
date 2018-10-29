@@ -1,4 +1,3 @@
 RegisterCommand("bbox", function(source, args, raw)
-    local src = source
-    TriggerClientEvent("boombox:ToggleBoombox", src)
+    TriggerClientEvent("boombox:ToggleBoombox", source)
 end)
